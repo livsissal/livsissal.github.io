@@ -3660,6 +3660,12 @@ if (typeof jQuery != 'undefined') {
 						x = e.pageX;
 					}
 
+                    //TRIVANTIS TAG - LO-5714 mediaelement progress bar not working when scaling is set
+                    var tsf = getDisplayWindow().trivPage.div.style.transform || '';
+                    var parts = /scale\((.*)\)/.exec(tsf);
+                    if (parts && parts.length > 1)
+                        width = width * parseFloat(parts[1]);
+
 					if (media.duration) {
 						if (x < offset.left) {
 							x = offset.left;
