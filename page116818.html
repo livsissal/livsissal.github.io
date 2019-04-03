@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>Oppgave atommodeller</TITLE>
+<TITLE>Oppgave</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -54,11 +54,16 @@ if( !is.min )
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
 var VarQuestion_116826 = new Variable( 'VarQuestion_116826', '', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPageInTitle.set( '5' );
+VarPageInTitle.set( '6' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( 'Atomets oppbygning' );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Oppgave' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -91,9 +96,6 @@ function init_page()
 		og2596.cwObj={};
 		og2596.cwObj.arChld=[
     ];
-		og117600.cwObj={};
-		og117600.cwObj.arChld=[
-    ];
 		var valVarQuestion_116826 = VarQuestion_116826.getValue();
 		if(valVarQuestion_116826 != '~~~null~~~' && entry116834.dCon) entry116834.dCon.value=valVarQuestion_116826;
 		if(Varsound_enabled.equals('0')){
@@ -111,17 +113,6 @@ else textbutton1733.show();
 		trivPage.actionMute();
 	}
 }
-
-function finish() {
-    if (window.finishCalled) return;
-    window.finishCalled = true;
-    VarElapsedTime.uDT()
-}
-
-window.onbeforeunload = function(){
-	if (!theApp.is.ie10orLess) finish();
-};
-window.onunload = finish;
 function trivPrevPage() {
     trivExitPage( 'page104303.html', true )
 }
@@ -142,6 +133,7 @@ function trivResetEntry() {
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -150,10 +142,10 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
+	var text117980 = new jsWndText(); //Page Count
 	var text117601 = new jsWndText(); //Text Block 2
-	var og117600 = new jsWndOther(); //Group_1
+	var image118086 = new jsWndImage(); //Skallmodell stort
 	var text117599 = new jsWndText(); //Text Block 2
-	var image117594 = new jsWndImage(); //Bohrs modell lite
 	var text116899 = new jsWndText(); //Text Block 1
 	var image117110 = new jsWndImage(); //Ikon skriftlig oppgave
 	var qu116826 = new jsWndEssayQuestion(); //Atom-modell
@@ -162,14 +154,12 @@ if( is.min ) {
 	var entry116834 = new jsWndFormEntry(); //Entry field
 	og2596.arChld=[shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
 	og2596.type=14;
-	og117600.arChld=[text117599,image117594];
-	og117600.type=14;
 	qu116826.arChld=[text116833,image116832,entry116834];
 	qu116826.type=13;
 	var alertCtr = 0;
 	var trivPageId=116818; //trivPage.id
-	var arWnds = [text117599,image117594,text116899,image117110,text116833,image116832,entry116834,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text117601];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text117601,og117600,text117599,image117594,text116899,image117110,qu116826,text116833,image116832,entry116834];
+	var arWnds = [text117980,image118086,text117599,text116899,image117110,text116833,image116832,entry116834,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text117601];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text117980,text117601,image118086,text117599,text116899,image117110,qu116826,text116833,image116832,entry116834];
 	var arPooledMedia = [];
 	var arQuest = [qu116826];
 }

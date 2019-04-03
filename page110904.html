@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>CHAPTER 2</TITLE>
+<TITLE>Atomer i ulike former</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -50,11 +50,16 @@ if( !is.min )
 
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPageInTitle.set( '6' );
+VarPageInTitle.set( '7' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( 'Ioner' );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Atomer i ulike former' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -103,17 +108,6 @@ else textbutton1733.show();
 		trivPage.actionMute();
 	}
 }
-
-function finish() {
-    if (window.finishCalled) return;
-    window.finishCalled = true;
-    VarElapsedTime.uDT()
-}
-
-window.onbeforeunload = function(){
-	if (!theApp.is.ie10orLess) finish();
-};
-window.onunload = finish;
 function trivPrevPage() {
     trivExitPage( 'page116818.html', true )
 }
@@ -126,6 +120,7 @@ function trivNextPage() {
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -134,19 +129,19 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
+	var text117983 = new jsWndText(); //Page Count
 	var image116845 = new jsWndImage(); //molecules-2111539_1280
 	var image116847 = new jsWndImage(); //atom-1472657_1920
 	var audio110905 = new jsWndAudio(); //silence
 	var shape110907 = new jsWndShape(); //Seperator_line
-	var shape110908 = new jsWndShape(); //Chapter_number_background
 	var text110909 = new jsWndText(); //Page_title
 	var text110910 = new jsWndText(); //Page_content
 	og2596.arChld=[shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
 	og2596.type=14;
 	var alertCtr = 0;
 	var trivPageId=110904; //trivPage.id
-	var arWnds = [image116845,image116847,audio110905,shape110907,shape110908,text110909,text110910,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,image116845,image116847,audio110905,shape110907,shape110908,text110909,text110910];
+	var arWnds = [text117983,image116845,image116847,audio110905,shape110907,text110909,text110910,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text117983,image116845,image116847,audio110905,shape110907,text110909,text110910];
 	var arPooledMedia = [audio110905];
 }
 

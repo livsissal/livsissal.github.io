@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>Animasjoner og spill</TITLE>
+<TITLE>Introduksjon</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -50,11 +50,16 @@ if( !is.min )
 
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPageInTitle.set( '11' );
+VarPageInTitle.set( '17' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( 'Animasjoner, spill og oppgaver' );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Introduksjon' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -106,7 +111,6 @@ else textbutton1733.show();
 function finish() {
     if (window.finishCalled) return;
     window.finishCalled = true;
-    VarElapsedTime.uDT()
     if( trivCompleteCnt > 0 ) trivExitPage( 'ObjLayerActionExit()', false );
 }
 
@@ -115,17 +119,18 @@ window.onbeforeunload = function(){
 };
 window.onunload = finish;
 function trivPrevPage() {
-    trivExitPage( 'page116988.html', true )
+    trivExitPage( 'page117765.html', true )
 }
 
 function trivNextPage() {
-    trivExitPage( 'page117040.html', true )
+    trivExitPage( 'page118388.html', true )
 }
 
 
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -134,14 +139,17 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
+	var text118007 = new jsWndText(); //Page Count
+	var text117901 = new jsWndText(); //Text Block 2
 	var text116929 = new jsWndText(); //Text Block 1
-	var webwnd116927 = new jsWndWebWidget(); //Web Window_116927
+	var text117905 = new jsWndText(); //Text Block 2
+	var image118226 = new jsWndImage(); //Bilde til link bygg atom
 	og2596.arChld=[shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
 	og2596.type=14;
 	var alertCtr = 0;
 	var trivPageId=116924; //trivPage.id
-	var arWnds = [text116929,webwnd116927,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text116929,webwnd116927];
+	var arWnds = [text118007,text117901,text116929,text117905,image118226,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text118007,text117901,text116929,text117905,image118226];
 	var arPooledMedia = [];
 }
 

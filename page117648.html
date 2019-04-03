@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>Oppgaver om bruk av periodesystemet</TITLE>
+<TITLE>Oppgaver</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -55,11 +55,16 @@ var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, '
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
 var VarQuestion_117649 = new Variable( 'VarQuestion_117649', '', 0, 0, null, null, 'page1.html', f );
 var VarQuestion_117660 = new Variable( 'VarQuestion_117660', '', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
 VarPageInTitle.set( '14' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( 'Bruk av periodesystemet' );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Oppgaver' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -111,17 +116,6 @@ else textbutton1733.show();
 		trivPage.actionMute();
 	}
 }
-
-function finish() {
-    if (window.finishCalled) return;
-    window.finishCalled = true;
-    VarElapsedTime.uDT()
-}
-
-window.onbeforeunload = function(){
-	if (!theApp.is.ie10orLess) finish();
-};
-window.onunload = finish;
 function trivPrevPage() {
     trivExitPage( 'page117067.html', true )
 }
@@ -144,6 +138,7 @@ function trivResetEntry() {
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -152,6 +147,7 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
+	var text118025 = new jsWndText(); //Page Count
 	var text117671 = new jsWndText(); //Text Block 1
 	var image117656 = new jsWndImage(); //Ikon skriftlig oppgave
 	var image117667 = new jsWndImage(); //Ikon skriftlig oppgave
@@ -169,8 +165,8 @@ if( is.min ) {
 	qu117660.type=13;
 	var alertCtr = 0;
 	var trivPageId=117648; //trivPage.id
-	var arWnds = [text117671,image117656,image117667,text117654,entry117655,text117661,entry117662,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text117671,image117656,image117667,qu117649,text117654,entry117655,qu117660,text117661,entry117662];
+	var arWnds = [text118025,text117671,image117656,image117667,text117654,entry117655,text117661,entry117662,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text118025,text117671,image117656,image117667,qu117649,text117654,entry117655,qu117660,text117661,entry117662];
 	var arPooledMedia = [];
 	var arQuest = [qu117649,qu117660];
 }

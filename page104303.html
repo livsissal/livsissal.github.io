@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>Atomets oppbygning</TITLE>
+<TITLE>Skallmodellen og skymodellen</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -50,11 +50,16 @@ if( !is.min )
 
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPageInTitle.set( '4' );
+VarPageInTitle.set( '5' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( 'Atomets oppbygning' );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Skallmodellen og skymodellen' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -87,6 +92,9 @@ function init_page()
 		og2596.cwObj={};
 		og2596.cwObj.arChld=[
     ];
+		og118085.cwObj={};
+		og118085.cwObj.arChld=[
+    ];
 		arAudioVideo.push(audio104305);
 		if(Varsound_enabled.equals('0')){
 {trivPage.actionMute(1);}
@@ -108,7 +116,7 @@ if(typeof pF == 'function') pF();
 function finish() {
     if (window.finishCalled) return;
     window.finishCalled = true;
-    VarElapsedTime.uDT()
+    if( trivCompleteCnt > 0 ) trivExitPage( 'ObjLayerActionExit()', false );
 }
 
 window.onbeforeunload = function(){
@@ -116,7 +124,7 @@ window.onbeforeunload = function(){
 };
 window.onunload = finish;
 function trivPrevPage() {
-    trivExitPage( 'page111227.html', true )
+    trivExitPage( 'page117900.html', true )
 }
 
 function trivNextPage() {
@@ -127,6 +135,7 @@ function trivNextPage() {
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -135,21 +144,28 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
-	var image116685 = new jsWndImage(); //Bohrs modell stort
-	var image116680 = new jsWndImage(); //Bohrs modell lite
-	var audio104305 = new jsWndAudio(); //silence
+	var og118085 = new jsWndOther(); //Group_1
+	var image118068 = new jsWndImage(); //Skallmodell lite
+	var image118080 = new jsWndImage(); //important-98442_640
+	var text118079 = new jsWndText(); //Text Block 4
 	var image116678 = new jsWndImage(); //Skymodellen lite
+	var text117973 = new jsWndText(); //Page Count
+	var text117947 = new jsWndText(); //Tilhørende oppgave på neste side
+	var audio104305 = new jsWndAudio(); //silence
 	var image116694 = new jsWndImage(); //Skymodellen stort
+	var image118070 = new jsWndImage(); //Skallmodell stort
 	var shape104310 = new jsWndShape(); //Seperator_line
 	var text104311 = new jsWndText(); //Chapter_title
 	var text104312 = new jsWndText(); //Page_title
 	var text104313 = new jsWndText(); //Page_content
 	og2596.arChld=[shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
 	og2596.type=14;
+	og118085.arChld=[image118068,image118080,text118079,image116678];
+	og118085.type=14;
 	var alertCtr = 0;
 	var trivPageId=104303; //trivPage.id
-	var arWnds = [image116680,audio104305,image116678,shape104310,text104311,text104312,text104313,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,image116685,image116694];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,image116685,image116680,audio104305,image116678,image116694,shape104310,text104311,text104312,text104313];
+	var arWnds = [image118068,image118080,text118079,image116678,text117973,text117947,audio104305,shape104310,text104311,text104312,text104313,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,image116694,image118070];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,og118085,image118068,image118080,text118079,image116678,text117973,text117947,audio104305,image116694,image118070,shape104310,text104311,text104312,text104313];
 	var arPooledMedia = [audio104305];
 }
 

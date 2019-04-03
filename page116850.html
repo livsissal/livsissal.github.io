@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>Ioner - atomer med ladning</TITLE>
+<TITLE>Ioner - ladde atomer</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -54,11 +54,16 @@ if( !is.min )
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
 var VarQuestion_116966 = new Variable( 'VarQuestion_116966', '', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPageInTitle.set( '7' );
+VarPageInTitle.set( '8' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( 'Ioner' );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Ioner - ladde atomer' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -112,7 +117,6 @@ else textbutton1733.show();
 function finish() {
     if (window.finishCalled) return;
     window.finishCalled = true;
-    VarElapsedTime.uDT()
     if( trivCompleteCnt > 0 ) trivExitPage( 'ObjLayerActionExit()', false );
 }
 
@@ -140,6 +144,7 @@ function trivResetEntry() {
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -148,6 +153,7 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
+	var text117986 = new jsWndText(); //Page Count
 	var qu116966 = new jsWndEssayQuestion(); //Beskrive ionemodell
 	var text116971 = new jsWndText(); //Question Text
 	var entry116972 = new jsWndFormEntry(); //Entry field
@@ -163,8 +169,8 @@ if( is.min ) {
 	qu116966.type=13;
 	var alertCtr = 0;
 	var trivPageId=116850; //trivPage.id
-	var arWnds = [text116971,entry116972,image117112,image116852,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text116851,image116900,shape117804,shape117809];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,qu116966,text116971,entry116972,image117112,text116851,image116852,image116900,shape117804,shape117809];
+	var arWnds = [text117986,text116971,entry116972,image117112,image116852,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text116851,image116900,shape117804,shape117809];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text117986,qu116966,text116971,entry116972,image117112,text116851,image116852,image116900,shape117804,shape117809];
 	var arPooledMedia = [];
 	var arQuest = [qu116966];
 }

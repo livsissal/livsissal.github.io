@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>Innhold</TITLE>
+<TITLE>Hovedmeny</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -52,11 +52,16 @@ if( !is.min )
 
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
 VarPageInTitle.set( '1' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( null );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Hovedmeny' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -90,8 +95,11 @@ function init_page()
 		og2596.cwObj={};
 		og2596.cwObj.arChld=[
     ];
-		arAudioVideo.push(audio104268);
 		arAudioVideo.push(video116955);
+		og118532.cwObj={};
+		og118532.cwObj.arChld=[
+    ];
+		arAudioVideo.push(audio104268);
 		og117092.cwObj={};
 		og117092.cwObj.arChld=[
     ];
@@ -110,17 +118,6 @@ else textbutton1733.show();
 		trivPage.actionMute();
 	}
 }
-
-function finish() {
-    if (window.finishCalled) return;
-    window.finishCalled = true;
-    VarElapsedTime.uDT()
-}
-
-window.onbeforeunload = function(){
-	if (!theApp.is.ie10orLess) finish();
-};
-window.onunload = finish;
 function trivPrevPage() {
     trivExitPage( '', true )
 }
@@ -133,6 +130,7 @@ function trivNextPage() {
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -141,8 +139,9 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
-	var text116776 = new jsWndText(); //Text Block 4
-	var image116807 = new jsWndImage(); //pin-161158_1280
+	var video116955 = new jsWndVideo(); //video-1551383725
+	var og118532 = new jsWndOther(); //Group_2
+	var text117888 = new jsWndText(); //Text Block 5
 	var audio104268 = new jsWndAudio(); //silence
 	var image116801 = new jsWndImage(); //chemical-laboratory-1063849_1280
 	var textbutton117094 = new jsWndTextButton(); //Reagensrør
@@ -152,29 +151,37 @@ if( is.min ) {
 	var textbutton117096 = new jsWndTextButton(); //Fjerde kolbe
 	var textbutton116999 = new jsWndTextButton(); //Første kolbe
 	var textbutton117001 = new jsWndTextButton(); //Andre kolbe
-	var image116772 = new jsWndImage(); //periodic-system-1059755_1920
+	var image117906 = new jsWndImage(); //periodic-system-1059755_640
 	var textbutton117071 = new jsWndTextButton(); //Bok hva er periodesystemet
 	var textbutton117077 = new jsWndTextButton(); //Bok bruk av periodesystemet
 	var textbutton116953 = new jsWndTextButton(); //Flamme
-	var video116955 = new jsWndVideo(); //video-1551383725
-	var text104278 = new jsWndText(); //Page_title
 	var shape104272 = new jsWndShape(); //Page_Mask
 	var textbutton116960 = new jsWndTextButton(); //Tredje kolbe
 	var og117092 = new jsWndOther(); //Group_1
+	var text104278 = new jsWndText(); //Page_title
 	var textbutton116715 = new jsWndTextButton(); //Bok atomets oppbygning
 	var image117037 = new jsWndImage(); //Bilde bygg et atom
 	var textbutton117026 = new jsWndTextButton(); //Bok isotoper
 	var textbutton116709 = new jsWndTextButton(); //Bok atomer og grunnstoffer
 	var textbutton117012 = new jsWndTextButton(); //Bok ioner
 	var textbutton117020 = new jsWndTextButton(); //Bok notasjon
+	var text116776 = new jsWndText(); //post-it
+	var text117887 = new jsWndText(); //Trykk på bøkene....
+	var image116807 = new jsWndImage(); //pin-161158_1280
+	var image117916 = new jsWndImage(); //important-98442_640
+	var text117886 = new jsWndText(); //Bruk piltastene..
+	var image117912 = new jsWndImage(); //important-98442_640
+	var image117920 = new jsWndImage(); //important-98442_640
 	og2596.arChld=[shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
 	og2596.type=14;
-	og117092.arChld=[textbutton116715,image117037,textbutton117026,textbutton116709,textbutton117012,textbutton117020];
+	og118532.arChld=[text117888,audio104268,image116801,textbutton117094,textbutton117099,textbutton117609,textbutton117602,textbutton117096,textbutton116999,textbutton117001,image117906,textbutton117071,textbutton117077,textbutton116953,shape104272,textbutton116960,og117092,image117916,text117886,image117912,image117920];
+	og118532.type=14;
+	og117092.arChld=[text104278,textbutton116715,image117037,textbutton117026,textbutton116709,textbutton117012,textbutton117020,text116776,text117887,image116807];
 	og117092.type=14;
 	var alertCtr = 0;
 	var trivPageId=104266; //trivPage.id
-	var arWnds = [audio104268,shape104272,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text116776,image116807,image116801,textbutton117094,textbutton117099,textbutton117609,textbutton117602,textbutton117096,textbutton116999,textbutton117001,image116772,textbutton117071,textbutton117077,textbutton116953,video116955,text104278,textbutton116960,textbutton116715,image117037,textbutton117026,textbutton116709,textbutton117012,textbutton117020];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text116776,image116807,audio104268,image116801,textbutton117094,textbutton117099,textbutton117609,textbutton117602,textbutton117096,textbutton116999,textbutton117001,image116772,textbutton117071,textbutton117077,textbutton116953,video116955,text104278,shape104272,textbutton116960,og117092,textbutton116715,image117037,textbutton117026,textbutton116709,textbutton117012,textbutton117020];
+	var arWnds = [text117888,audio104268,shape104272,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,video116955,image116801,textbutton117094,textbutton117099,textbutton117609,textbutton117602,textbutton117096,textbutton116999,textbutton117001,image117906,textbutton117071,textbutton117077,textbutton116953,textbutton116960,text104278,textbutton116715,image117037,textbutton117026,textbutton116709,textbutton117012,textbutton117020,text116776,text117887,image116807,image117916,text117886,image117912,image117920];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,video116955,og118532,text117888,audio104268,image116801,textbutton117094,textbutton117099,textbutton117609,textbutton117602,textbutton117096,textbutton116999,textbutton117001,image117906,textbutton117071,textbutton117077,textbutton116953,shape104272,textbutton116960,og117092,text104278,textbutton116715,image117037,textbutton117026,textbutton116709,textbutton117012,textbutton117020,text116776,text117887,image116807,image117916,text117886,image117912,image117920];
 	var arPooledMedia = [audio104268,video116955];
 }
 

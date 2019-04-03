@@ -50,11 +50,16 @@ if( !is.min )
 
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
 VarPageInTitle.set( '3' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( 'Grunnstoffer og atomer' );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Grunnstoffer og atomer' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -88,6 +93,9 @@ function init_page()
 		og2596.cwObj.arChld=[
     ];
 		arAudioVideo.push(audio111228);
+		og117909.cwObj={};
+		og117909.cwObj.arChld=[
+    ];
 		if(Varsound_enabled.equals('0')){
 {trivPage.actionMute(1);}
 }
@@ -103,29 +111,19 @@ else textbutton1733.show();
 		trivPage.actionMute();
 	}
 }
-
-function finish() {
-    if (window.finishCalled) return;
-    window.finishCalled = true;
-    VarElapsedTime.uDT()
-}
-
-window.onbeforeunload = function(){
-	if (!theApp.is.ie10orLess) finish();
-};
-window.onunload = finish;
 function trivPrevPage() {
     trivExitPage( 'page104429.html', true )
 }
 
 function trivNextPage() {
-    trivExitPage( 'page104303.html', true )
+    trivExitPage( 'page117900.html', true )
 }
 
 
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -134,7 +132,12 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
+	var text118049 = new jsWndText(); //Page Count
+	var text117925 = new jsWndText(); //Tilhørende oppgave på neste side
 	var audio111228 = new jsWndAudio(); //silence
+	var og117909 = new jsWndOther(); //Group_1
+	var image117910 = new jsWndImage(); //important-98442_640
+	var text117907 = new jsWndText(); //Text Block 4
 	var image116676 = new jsWndImage(); //Bilde oversikt stoffer
 	var image116944 = new jsWndImage(); //Bilde oversikt stoffer stort
 	var shape111231 = new jsWndShape(); //Seperator_line
@@ -143,10 +146,12 @@ if( is.min ) {
 	var text111234 = new jsWndText(); //Page_content
 	og2596.arChld=[shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
 	og2596.type=14;
+	og117909.arChld=[image117910,text117907,image116676];
+	og117909.type=14;
 	var alertCtr = 0;
 	var trivPageId=111227; //trivPage.id
-	var arWnds = [audio111228,image116676,shape111231,text111232,text111233,text111234,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,image116944];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,audio111228,image116676,image116944,shape111231,text111232,text111233,text111234];
+	var arWnds = [text118049,text117925,audio111228,image117910,text117907,image116676,image116944,shape111231,text111232,text111233,text111234,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text118049,text117925,audio111228,og117909,image117910,text117907,image116676,image116944,shape111231,text111232,text111233,text111234];
 	var arPooledMedia = [audio111228];
 }
 

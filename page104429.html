@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><!-- must be the first element in head -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="minimum-scale=1, initial-scale=1" />
-<TITLE>HOTSPOTS Alt er kjemi</TITLE>
+<TITLE>Alt er kjemi</TITLE>
 
 <link rel="stylesheet" href="trivantisPage.css" type="text/css" />
 <link rel="stylesheet" href="trivantis-common.css" type="text/css" />
@@ -50,11 +50,16 @@ if( !is.min )
 
 var VarTriMuteAllFLV = new Variable( 'VarTriMuteAllFLV', '', 0, 0, null, null, 'page1.html', t );
 var Varsound_enabled = new Variable( 'Varsound_enabled', '1', 0, 0, null, null, 'page1.html', f );
-var VarElapsedTime = new Variable( 'VarElapsedTime', null, 4, 0, null, null, 'page1.html'  );
 var VarPageInTitle = new Variable( 'VarPageInTitle', null, 0, 0, null, null, 'page1.html'  );
 VarPageInTitle.set( '2' );
 var VarPagesInTitle = new Variable( 'VarPagesInTitle', null, 0, 0, null, null, 'page1.html'  );
-VarPagesInTitle.set( '32' );
+VarPagesInTitle.set( '27' );
+var VarCurrentChapterName = new Variable( 'VarCurrentChapterName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentChapterName.set( null );
+var VarCurrentSectionName = new Variable( 'VarCurrentSectionName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentSectionName.set( null );
+var VarCurrentPageName = new Variable( 'VarCurrentPageName', null, 0, 0, null, null, 'page1.html'  );
+VarCurrentPageName.set( 'Alt er kjemi' );
 var bRcdTitle = true;
 var pgWidth_phonePort = 480;
 var pgWidth_phoneLand = 785;
@@ -141,17 +146,6 @@ else textbutton1733.show();
 		trivPage.actionMute();
 	}
 }
-
-function finish() {
-    if (window.finishCalled) return;
-    window.finishCalled = true;
-    VarElapsedTime.uDT()
-}
-
-window.onbeforeunload = function(){
-	if (!theApp.is.ie10orLess) finish();
-};
-window.onunload = finish;
 function trivPrevPage() {
     trivExitPage( 'page104266.html', true )
 }
@@ -164,6 +158,7 @@ function trivNextPage() {
 if( is.min ) {
 	var rcdObj = { rcdData: {} };
 
+	var text117880 = new jsWndText(); //Breadcrumb
 	var og2596 = new jsWndOther(); //Header
 	var shape164 = new jsWndShape(); //Header_Background
 	var textbutton116700 = new jsWndTextButton(); //Hovedmeny knapp
@@ -172,6 +167,7 @@ if( is.min ) {
 	var image387 = new jsWndImage(); //icn_devider
 	var textbutton563 = new jsWndTextButton(); //Button_Back
 	var textbutton1166 = new jsWndTextButton(); //Button_Next
+	var text118043 = new jsWndText(); //Page Count
 	var image116799 = new jsWndImage(); //battery-22119_1920
 	var image116778 = new jsWndImage(); //apple-1122537_1920
 	var image116792 = new jsWndImage(); //chemistry-1027781_1920
@@ -183,7 +179,6 @@ if( is.min ) {
 	var image116790 = new jsWndImage(); //dna-3539309_1920
 	var audio104431 = new jsWndAudio(); //silence
 	var og104432 = new jsWndOther(); //reset_stage
-	var text104449 = new jsWndText(); //Page_title
 	var textbutton111115 = new jsWndTextButton(); //Hotspot_1
 	var textbutton117856 = new jsWndTextButton(); //Hotspot_6
 	var textbutton111130 = new jsWndTextButton(); //Hotspot_2
@@ -196,6 +191,7 @@ if( is.min ) {
 	var text111152 = new jsWndText(); //Hotspot_popup_4
 	var text111161 = new jsWndText(); //Hotspot_popup_5
 	var text117863 = new jsWndText(); //Hotspot_popup_6
+	var text104449 = new jsWndText(); //Page_title
 	og2596.arChld=[shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
 	og2596.type=14;
 	grpAction0for104432 = function(pF){
@@ -273,8 +269,8 @@ if( is.min ) {
 	og104432.type=14;
 	var alertCtr = 0;
 	var trivPageId=104429; //trivPage.id
-	var arWnds = [image116799,image116778,image116792,image116780,image116782,image116784,image116786,image116788,image116790,audio104431,text104449,textbutton111115,textbutton117856,textbutton111130,textbutton111139,textbutton111148,textbutton111157,text111121,text111134,text111143,text111152,text111161,text117863,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166];
-	var arAttachObj = [og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,image116799,image116778,image116792,image116780,image116782,image116784,image116786,image116788,image116790,audio104431,og104432,text104449,textbutton111115,textbutton117856,textbutton111130,textbutton111139,textbutton111148,textbutton111157,text111121,text111134,text111143,text111152,text111161,text117863];
+	var arWnds = [image116799,image116778,image116792,image116780,image116782,image116784,image116786,image116788,image116790,audio104431,textbutton111115,textbutton117856,textbutton111130,textbutton111139,textbutton111148,textbutton111157,text111121,text111134,text111143,text111152,text111161,text117863,text104449,text117880,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text118043];
+	var arAttachObj = [text117880,og2596,shape164,textbutton116700,textbutton1733,textbutton2012,image387,textbutton563,textbutton1166,text118043,image116799,image116778,image116792,image116780,image116782,image116784,image116786,image116788,image116790,audio104431,og104432,textbutton111115,textbutton117856,textbutton111130,textbutton111139,textbutton111148,textbutton111157,text111121,text111134,text111143,text111152,text111161,text117863,text104449];
 	var arPooledMedia = [audio104431];
 }
 
